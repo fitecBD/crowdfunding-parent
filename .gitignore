@@ -1,7 +1,11 @@
 .settings/*
 target/*
-stanford-sentiment-enhancer/*
 .classpath
 .project
 src/main/resources/META-INF/*
 src/main/resources/archetype-resources/*
+stanford-sentiment-enhancer/.settings/*
+stanford-sentiment-enhancer/errors/*
+stanford-sentiment-enhancer/logs/*
+stanford-sentiment-enhancer/src/main/resources/stanford-corenlp-3.7.0-models.jar
+stanford-sentiment-enhancer/target/*
