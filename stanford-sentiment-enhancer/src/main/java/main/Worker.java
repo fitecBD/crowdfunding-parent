@@ -273,36 +273,4 @@ public class Worker implements Runnable {
 		Worker.cptProjects++;
 	}
 
-	public static void main(String... args) throws ConfigurationException {
-		Worker worker = new Worker();
-		worker.testCallback();
-	}
-
-	private void testCallback() {
-		String text = "Hi Helena, many thanks for considering cloudyBoss for your business. The team looks forward to work with you. The issue of multi-site and multiple countries management with ecommerce that you mentioned is one of the many reasons clients switch to the cloudyBoss platform. It is indeed a complex and multi-faceted issue with many cloudyBoss features to address them as per below: 1) multi-sites. Each cloudyBoss client account provides access to an integrated and comprehensive back-end from which multiple (unlimited) front-end sites can be easily configured and managed. 2) Each of these front-end sites (managed from the same back-end) come in 2 responsive flavors (mobile / desktop) with their own URL / domain names. Each will have its own default language and unique set of other languages (our native multilingual capabilities is another core reason why clients prefer cloudyBoss for the management of their content). 3) Each front-end site will also have its own default currency and unique set of multiple currencies (you did not specifically ask about this however I suspect that, similarly to other international cloudyBoss clients, you might have currency management complexities which would be solved with other features) 4) cloudyBoss has sophisticated product and pricing engines which allow you to setup all types of products and services (including complex solutions and time and/or location based products) with multiple types and levels of pricing in multiple currencies 5) The cloudyBoss product engine allows you to configure different types of freight charges depending on product route, origin and destination 6) cloudyBoss has a native universal tax engine and, while this is yet to be uploaded, we are working in configuring then maintaining overtime all known national, regional or local taxes and the rules attached to them across all countries, and pre-load this data for each client so that clients can pick and choose depending on the territories they are operating under 7) Different taxes and duties can be attached to each front-end site independently one from another, and also at product level of course 8) There are many additional features with taxes and duties to cover for any situation, such as exclusions or inclusions (dependent on origins, destinations, amounts, volumes, clients, products), calculation rules and sequencing and much more Fundamentally, the cloudyBoss standard NEXT+ solution has native product, pricing, currency, freight, tax and duty features which allow any type of international ecommerce businesses to easily configure any situations, and future-proof their configuration against upcoming changes and new national regulations with ecommerce. All from the same integrated back-end. I hope this answers your questions. Let us know otherwise and again many thanks for backing us. Cheers, Giovanni and the cloudyBoss team";
-		// Object monitor;
-
-		//		String text = "Hi i am toto and i am glad to be a computer programme";
-		try (MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoUri));) {
-			BasicDBObject query = new BasicDBObject().append("id", new BsonInt32(2121807763));
-			BasicDBObject filter = new BasicDBObject();
-			filter.append("_id", 0).append("id", 1).append("comments", 1).append("slug", 1);
-			Document projectBson = mongoClient.getDatabase(databaseName).getCollection(collectionName).find(query)
-					.projection(filter).limit(100).noCursorTimeout(true).first();
-
-			projectBson.get("comments", Document.class).get("data", ArrayList.class)
-					.add(new Document().append("data", text));
-
-			System.out.println((projectBson.get("comments", Document.class).get("data", ArrayList.class).get(1)));
-
-			int[] allsentiments = { 0, 0, 0, 0, 0 };
-			asyncCall(allsentiments,
-					(Document) projectBson.get("comments", Document.class).get("data", ArrayList.class).get(1));
-
-			System.out.println((projectBson.get("comments", Document.class).get("data", ArrayList.class).get(1)));
-		}
-
-		System.out.println("main end");
-	}
-
 }

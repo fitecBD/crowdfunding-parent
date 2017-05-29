@@ -35,11 +35,6 @@ public class App {
 	private String databaseName;
 	private String collectionName;
 
-	// LanguageDetector detector = new OptimaizeLangDetector();
-
-	// pipeline du module Stanford Core NLP
-	StanfordCoreNLP stanfordSentiementPipeline;
-
 	// private ProjectsStock projectsStock;
 	private List<Thread> workers = new ArrayList<>();
 	private int nbThreads;
