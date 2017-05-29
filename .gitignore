@@ -1,0 +1,7 @@
+.settings/*
+target/*
+stanford-sentiment-enhancer/*
+.classpath
+.project
+src/main/resources/META-INF/*
+src/main/resources/archetype-resources/*
