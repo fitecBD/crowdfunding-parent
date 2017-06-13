@@ -82,7 +82,7 @@ public class App {
 //			BasicDBObject sort = new BasicDBObject();
 //			sort.append("comments_count", 1);
 
-			// on ajoute les ids à un hashset
+			// on ajoute les ids  un hashset
 			logger.info("querying projects from mongo database - "
 					+ mongoClient.getDatabase(databaseName).getCollection(collectionName).count(query)
 					+ " documents du scrape");
@@ -95,7 +95,7 @@ public class App {
 			// attente de la terminaison des threads
 			joinThreads();
 			cursor.close();
-			logger.info("update terminée pour la collection " + collectionName + " de la BD " + databaseName);
+			logger.info("update terminÃ©e pour la collection " + collectionName + " de la BD " + databaseName);
 		}
 	}
 
